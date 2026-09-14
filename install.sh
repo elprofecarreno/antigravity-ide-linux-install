@@ -16,6 +16,7 @@ rm -rf $HOME/.antigravity-ide
 rm -rf $HOME/.gemini
 mkdir -p $HOME/antigravity-ide
 mv "Antigravity IDE"/* $HOME/antigravity-ide/
+rm "Antigravity IDE"
 rm -rf $FILE $FILE.tar.gz
 
 if ! grep -q 'export PATH="$HOME/antigravity-ide/bin:$PATH"' "$HOME/.bashrc"; then
