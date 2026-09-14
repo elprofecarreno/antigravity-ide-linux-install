@@ -14,6 +14,7 @@ tar -xvf $FILE.tar.gz
 rm -rf $HOME/antigravity-ide
 rm -rf $HOME/.antigravity-ide
 rm -rf $HOME/.gemini
+rm -rf $HOME/.config/Antigravity
 mkdir -p $HOME/antigravity-ide
 mv "Antigravity IDE"/* $HOME/antigravity-ide/
 rm "Antigravity IDE"
