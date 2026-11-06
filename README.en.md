@@ -18,12 +18,13 @@ This project is useful if you want to:
 When you run [install.sh](./install.sh), it performs these steps:
 
 1. Checks that `curl` is installed.
-2. Downloads a stable Linux x64 `.tar.gz` build of Antigravity IDE.
-3. Removes previous installation folders (`~/antigravity-ide`, `~/.antigravity-ide`, `~/.gemini`) and copies the new version into `~/antigravity-ide`.
-4. Adds `~/antigravity-ide/bin` to `~/.bashrc` if it is not already present.
-5. Generates a `.desktop` file from [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
-6. Moves that launcher into `~/.local/share/applications/antigravity-ide.desktop`.
-7. Sets execution permissions on the launcher and updates the desktop shortcut database (`update-desktop-database`).
+2. Reads the version to install from `antigravity.conf`.
+3. Downloads a stable Linux x64 `.tar.gz` build of Antigravity IDE.
+4. Removes previous installation folders (`~/antigravity-ide`, `~/.antigravity-ide`, `~/.gemini`) and copies the new version into `~/antigravity-ide`.
+5. Adds `~/antigravity-ide/bin` to `~/.bashrc` if it is not already present.
+6. Generates a `.desktop` file from [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
+7. Moves that launcher into `~/.local/share/applications/antigravity-ide.desktop`.
+8. Sets execution permissions on the launcher and updates the desktop shortcut database (`update-desktop-database`).
 
 ## Requirements
 
@@ -44,6 +45,16 @@ From the project root, run:
 chmod +x install.sh
 ./install.sh
 ```
+
+## Change Antigravity version
+
+Edit `antigravity.conf` and set `ANTIGRAVITY_VERSION`:
+
+```bash
+ANTIGRAVITY_VERSION=2.5.5-4923483625488384
+```
+
+Then run `./install.sh` again.
 
 ## After installation
 
@@ -72,6 +83,6 @@ The script removes `~/antigravity-ide`, `~/.antigravity-ide`, and `~/.gemini`, d
 ## Important notes
 
 - The script fully replaces the contents of `~/antigravity-ide`, `~/.antigravity-ide`, and `~/.gemini` every time it runs.
-- The download URL is hardcoded in the script, so it installs that specific Antigravity IDE version.
+- The download version is controlled through `ANTIGRAVITY_VERSION` in `antigravity.conf`.
 - It is intended for Linux x64 systems.
 - It includes an uninstall script to revert the main changes.

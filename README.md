@@ -18,12 +18,13 @@ Sirve para:
 Al ejecutar [install.sh](./install.sh), el proceso realiza estas acciones:
 
 1. Verifica que `curl` esté instalado.
-2. Descarga la compilación estable de Antigravity IDE para Linux x64 en formato `.tar.gz`.
-3. Elimina instalaciones e instalaciones previas de datos (`~/antigravity-ide`, `~/.antigravity-ide`, `~/.gemini`) y copia la nueva versión en `~/antigravity-ide`.
-4. Agrega `~/antigravity-ide/bin` al archivo `~/.bashrc` si todavía no existe.
-5. Genera un archivo `.desktop` a partir de [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
-6. Mueve ese lanzador a `~/.local/share/applications/antigravity-ide.desktop`.
-7. Concede permisos de ejecución al lanzador y actualiza la base de datos de accesos directos del escritorio (`update-desktop-database`).
+2. Lee la versión a instalar desde `antigravity.conf`.
+3. Descarga la compilación estable de Antigravity IDE para Linux x64 en formato `.tar.gz`.
+4. Elimina instalaciones e instalaciones previas de datos (`~/antigravity-ide`, `~/.antigravity-ide`, `~/.gemini`) y copia la nueva versión en `~/antigravity-ide`.
+5. Agrega `~/antigravity-ide/bin` al archivo `~/.bashrc` si todavía no existe.
+6. Genera un archivo `.desktop` a partir de [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
+7. Mueve ese lanzador a `~/.local/share/applications/antigravity-ide.desktop`.
+8. Concede permisos de ejecución al lanzador y actualiza la base de datos de accesos directos del escritorio (`update-desktop-database`).
 
 ## Requisitos
 
@@ -44,6 +45,16 @@ Desde la raíz del proyecto ejecuta:
 chmod +x install.sh
 ./install.sh
 ```
+
+## Cambiar versión de Antigravity
+
+Edita `antigravity.conf` y ajusta `ANTIGRAVITY_VERSION`:
+
+```bash
+ANTIGRAVITY_VERSION=2.5.5-4923483625488384
+```
+
+Luego ejecuta nuevamente `./install.sh`.
 
 ## Después de instalar
 
@@ -72,6 +83,6 @@ El script elimina `~/antigravity-ide`, `~/.antigravity-ide` y `~/.gemini`, borra
 ## Notas importantes
 
 - El script reemplaza por completo el contenido de `~/antigravity-ide`, `~/.antigravity-ide` y `~/.gemini` en cada ejecución.
-- La URL de descarga está fija dentro del script, así que instala esa versión específica de Antigravity IDE.
+- La versión de descarga se controla en `antigravity.conf` con `ANTIGRAVITY_VERSION`.
 - Está pensado para arquitecturas Linux x64.
 - Incluye un script de desinstalación para revertir los cambios principales.
