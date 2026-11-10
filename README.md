@@ -25,6 +25,7 @@ Al ejecutar [install.sh](./install.sh), el proceso realiza estas acciones:
 6. Genera un archivo `.desktop` a partir de [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
 7. Mueve ese lanzador a `~/.local/share/applications/antigravity-ide.desktop`.
 8. Concede permisos de ejecución al lanzador y actualiza la base de datos de accesos directos del escritorio (`update-desktop-database`).
+9. En Ubuntu con AppArmor activo, intenta crear/actualizar el perfil `/etc/apparmor.d/antigravity-ide` para evitar bloqueos al iniciar Antigravity IDE.
 
 ## Requisitos
 
@@ -34,8 +35,11 @@ Al ejecutar [install.sh](./install.sh), el proceso realiza estas acciones:
 - `grep`
 - `sed`
 - `update-desktop-database`
+- `sudo` (solo para la configuración opcional de AppArmor en Ubuntu)
 
 Si `update-desktop-database` no existe en tu sistema, normalmente viene en el paquete `desktop-file-utils`.
+
+Si usas Ubuntu y AppArmor está activo, el script puede pedirte permisos de `sudo` para escribir el perfil `/etc/apparmor.d/antigravity-ide`.
 
 ## Cómo usarlo
 

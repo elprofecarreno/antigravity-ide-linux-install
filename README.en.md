@@ -25,6 +25,7 @@ When you run [install.sh](./install.sh), it performs these steps:
 6. Generates a `.desktop` file from [antigravity-ide.desktop.template](./antigravity-ide.desktop.template).
 7. Moves that launcher into `~/.local/share/applications/antigravity-ide.desktop`.
 8. Sets execution permissions on the launcher and updates the desktop shortcut database (`update-desktop-database`).
+9. On Ubuntu with AppArmor enabled, it attempts to create/update `/etc/apparmor.d/antigravity-ide` to prevent Antigravity IDE startup blocking.
 
 ## Requirements
 
@@ -34,8 +35,11 @@ When you run [install.sh](./install.sh), it performs these steps:
 - `grep`
 - `sed`
 - `update-desktop-database`
+- `sudo` (only for optional AppArmor setup on Ubuntu)
 
 If `update-desktop-database` is missing on your system, it usually comes from the `desktop-file-utils` package.
+
+If you are on Ubuntu and AppArmor is enabled, the script may prompt for `sudo` permissions to write `/etc/apparmor.d/antigravity-ide`.
 
 ## How to use it
 

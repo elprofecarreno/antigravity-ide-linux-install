@@ -2,8 +2,8 @@
 Version=1.0
 Name=Antigravity IDE
 Comment=Antigravity IDE
-Exec=$HOME/antigravity-ide/bin/antigravity-ide
-Icon=$HOME/antigravity-ide/resources/app/resources/linux/code.png
+Exec=__HOME__/antigravity-ide/bin/antigravity-ide
+Icon=__HOME__/antigravity-ide/resources/app/resources/linux/code.png
 Terminal=false
 Type=Application
-Categories=Development;IDE;"
+Categories=Development;IDE;
